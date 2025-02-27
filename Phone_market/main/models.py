@@ -8,7 +8,7 @@ class Phone(models.Model):
     color = models.CharField(max_length=20)
     storage_capacity = models.CharField(max_length=6)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    release_date = models.DateField()
+    release_date = models.CharField(max_length=15)
     screen_size = models.CharField(max_length=10)
     battery_capacity = models.PositiveIntegerField()
     processor = models.CharField(max_length=25)

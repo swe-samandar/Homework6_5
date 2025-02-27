@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Phone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        input:focus {
+            border-color: #007BFF;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .file-input {
+            background: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h2>Update Phone</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="brand" value="{{ phone.brand }}" placeholder="Brand">
+        <input type="text" name="model" value="{{ phone.model }}" placeholder="Model">
+        <input type="text" name="color" value="{{ phone.color }}" placeholder="Color">
+        <input type="text" name="storage_capacity" value="{{ phone.storage_capacity }}" placeholder="Storage Capacity">
+        <input type="number" name="price" value="{{ phone.price }}" placeholder="Price">
+        <input type="text" name="release_date" value="{{ phone.release_date }}" placeholder="Release Date">
+        <input type="text" name="screen_size" value="{{ phone.screen_size }}" placeholder="Screen Size">
+        <input type="number" name="battery_capacity" value="{{ phone.battery_capacity }}" placeholder="Battery Capacity">
+        <input type="text" name="processor" value="{{ phone.processor }}" placeholder="Processor">
+        <input type="text" name="camera_resolution" value="{{ phone.camera_resolution }}" placeholder="Camera Resolution">
+        <input class="file-input" type="file" name="image">
+        <button type="submit">Update Phone</button>
+    </form>
+</div>
+</body>
+</html>

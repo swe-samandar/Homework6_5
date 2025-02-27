@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Phone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Create a New Phone</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="brand" placeholder="Brand">
+            <input type="text" name="model" placeholder="Model">
+            <input type="text" name="color" placeholder="Color">
+            <input type="text" name="storage_capacity" placeholder="Storage Capacity">
+            <input type="number" name="price" placeholder="Price">
+            <input type="text" name="release_date" placeholder="Release Date">
+            <input type="text" name="screen_size" placeholder="Screen Size">
+            <input type="number" name="battery_capacity" placeholder="Battery Capacity">
+            <input type="text" name="processor" placeholder="Processor">
+            <input type="text" name="camera_resolution" placeholder="Camera Resolution">
+            <input type="file" name="image">
+            <button type="submit">Create Phone</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -78,12 +78,9 @@ WSGI_APPLICATION = 'Phone_market.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'phones',
-        'USER': 'postgres',
-        'HOST': 'localhost',
-        'PASSWORD': 'passwd',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+
     }
 }
 

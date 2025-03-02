@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Phone
+from .forms import PhoneForm
 
 # Create your views here.
 
@@ -87,3 +88,23 @@ def phone_delete(request, pk):
         phone.delete()
         return redirect('main')
     return render(request, 'phone/phone_delete.html', {'phone': phone})
+
+
+def phone_create_form(request):
+    form = PhoneForm(request.POST, request.FILES)
+    if form.is_valid():
+        form.save()
+        return redirect('main')
+    return render(request, "phone/phone_create_form.html", {"form": form})
+
+
+def phone_update_form(request, pk):
+    phone = get_object_or_404(Phone, id=pk)
+    if request.method == 'POST':
+        form = PhoneForm(request.POST or None, request.FILES, instance=phone)
+        if form.is_valid():
+            form.save()
+            return redirect('phone-detail', pk)
+    else:
+        form = PhoneForm(instance=phone)
+    return render(request, 'phone/phone_update_form.html', {'form': form, 'phone': phone})
